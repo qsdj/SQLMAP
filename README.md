@@ -41,9 +41,9 @@
     banner()
 ```
 - setPaths()函数在sqlmap\lib\core\commmon.py中第840行可以看出setPaths()函数是定义sqlmap的路径和文件信息如：xml地址
- ```sh
+```sh
  paths.SQLMAP_XML_PATH = os.path.join(paths.SQLMAP_ROOT_PATH, "xml")
- ```
+```
 - banner()函数的作用是sqlmap在执行测试时输出sqlmap的banner和版本信息。
 
 ## sqlmap.py 73行
@@ -66,19 +66,19 @@
 ```
  - start()函数，sqlmap注入测试的开始。
  - start()函数在sqlmap\lib\controller\controller.py中，controller.py 140行。
- - ```sh
+```sh
    if conf.direct:
         initTargetEnv()
         setupTargetEnv()
         action()
         return True
-    ```
+```
  - conf.direct这是sqlmap -d，sqlmap进入action()函数并连接数据库。
-			 - action.py中158行
-			 - ```sh
-			       if conf.direct:
-        				conf.dbmsConnector.close()
-                          ```
+ - action.py中158行
+```sh
+	if conf.direct:
+	conf.dbmsConnector.close()
+```
  - controller.py第173行进入循环参数检测。会检测是否以前测试过testSqlInj，以及初始化基本参数url/psot:get/cookie/configfire/data
 ```sh
 for targetUrl, targetMethod, targetData, targetCookie in kb.targetUrls:

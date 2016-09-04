@@ -92,7 +92,7 @@ for targetUrl, targetMethod, targetData, targetCookie in kb.targetUrls:
             parseTargetUrl()
 
             testSqlInj = False
-        ```
+```
 
  
 ## controller.py 第267行 

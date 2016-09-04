@@ -100,18 +100,19 @@ for targetUrl, targetMethod, targetData, targetCookie in kb.targetUrls:
  
 ## controller.py 第364行
  - checkDynParam()函数在sqlmap\lib\contoller\check.py 第569行 checkDynParam()函数检测url参数是否为动态。
+
 ```sh
-   elif not checkDynParam(place, parameter, value):
-   def checkDynParam(place, parameter, value)
+elif not checkDynParam(place, parameter, value):
+def checkDynParam(place, parameter, value)
 ``` 
 ## controller.py 第375行
 ```sh
-		check = heuristicCheckSqlInjection(place, parameter)
+check = heuristicCheckSqlInjection(place, parameter)
 ```
  - heuristicCheckSqlInjection()函数在sqlmap\lib\contoller\check.py 第496行。
- - ```sh
+```sh
    def heuristicCheckSqlInjection(place, parameter):   
-   ```
+ ```
    生成payloads，并进行初步的sql注入测试，并解析结果（wasLastRequestDBMSError()查看是否包含数据库的报错）。
  - ```sh
     payload = "%s%s%s" % (prefix, randomStr(length=10, alphabet=['"', '\'', ')', '(']), suffix)

@@ -97,12 +97,14 @@ for targetUrl, targetMethod, targetData, targetCookie in kb.targetUrls:
  
 ## controller.py 第267行 第364行
  - setupTargetEnv()函数将解析参数、生成cookie信息、创建并输出结果。
- - checkDynParam()函数在sqlmap\lib\contoller\check.py 第569行 checkDynParam()函数检测url参数是否为动态。
 
 ```sh
 elif not checkDynParam(place, parameter, value):
 def checkDynParam(place, parameter, value)
 ``` 
+## 第364行
+- checkDynParam()函数在sqlmap\lib\contoller\check.py 第569行 checkDynParam()函数检测url参数是否为动态。
+
 ## controller.py 第375行
 ```sh
 check = heuristicCheckSqlInjection(place, parameter)
@@ -112,13 +114,12 @@ check = heuristicCheckSqlInjection(place, parameter)
    def heuristicCheckSqlInjection(place, parameter):   
  ```
    生成payloads，并进行初步的sql注入测试，并解析结果（wasLastRequestDBMSError()查看是否包含数据库的报错）。
-    ```sh
-    payload = "%s%s%s" % (prefix, randomStr(length=10, alphabet=['"', '\'', ')', '(']), suffix)
-    payload = agent.payload(place, parameter, newValue=payload)
-     Request.queryPage(payload, place, content=True, raise404=False)
-
-    result = wasLastRequestDBMSError()
-    ```
+```sh
+	payload = "%s%s%s" % (prefix, randomStr(length=10, alphabet=['"', '\'', ')', '(']), suffix)
+	payload = agent.payload(place, parameter, newValue=payload)
+	Request.queryPage(payload, place, content=True, raise404=False)
+	result = wasLastRequestDBMSError()
+```
  - 同时输出根据payloads进行简单测试的结果。
    ```sh
        if result:

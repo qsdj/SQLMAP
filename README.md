@@ -40,11 +40,11 @@
     setPaths()
     banner()
 ```
- - setPaths()函数在sqlmap\lib\core\commmon.py中第840行可以看出setPaths()函数是定义sqlmap的路径和文件信息如：xml地址
+- setPaths()函数在sqlmap\lib\core\commmon.py中第840行可以看出setPaths()函数是定义sqlmap的路径和文件信息如：xml地址
  ```sh
  paths.SQLMAP_XML_PATH = os.path.join(paths.SQLMAP_ROOT_PATH, "xml")
  ```
- - banner()函数的作用是sqlmap在执行测试时输出sqlmap的banner和版本信息。
+- banner()函数的作用是sqlmap在执行测试时输出sqlmap的banner和版本信息。
 
 ## sqlmap.py 73行
 ```sh
@@ -95,12 +95,8 @@ for targetUrl, targetMethod, targetData, targetCookie in kb.targetUrls:
 ```
 
  
-## controller.py 第267行
-
+## controller.py 第267行 第364行
  - setupTargetEnv()函数将解析参数、生成cookie信息、创建并输出结果。
- 
-## controller.py 第364行
-
  - checkDynParam()函数在sqlmap\lib\contoller\check.py 第569行 checkDynParam()函数检测url参数是否为动态。
 
 ```sh

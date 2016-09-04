@@ -78,7 +78,7 @@
 			 - ```sh
 			       if conf.direct:
         				conf.dbmsConnector.close()
-         ```
+                          ```
  - controller.py第173行进入循环参数检测。会检测是否以前测试过testSqlInj，以及初始化基本参数url/psot:get/cookie/configfire/data
 ```sh
 for targetUrl, targetMethod, targetData, targetCookie in kb.targetUrls:
@@ -92,7 +92,7 @@ for targetUrl, targetMethod, targetData, targetCookie in kb.targetUrls:
             parseTargetUrl()
 
             testSqlInj = False
-```
+        ```
 
  
 ## controller.py 第267行 第364行
@@ -112,7 +112,7 @@ check = heuristicCheckSqlInjection(place, parameter)
    def heuristicCheckSqlInjection(place, parameter):   
  ```
    生成payloads，并进行初步的sql注入测试，并解析结果（wasLastRequestDBMSError()查看是否包含数据库的报错）。
- - ```sh
+    ```sh
     payload = "%s%s%s" % (prefix, randomStr(length=10, alphabet=['"', '\'', ')', '(']), suffix)
     payload = agent.payload(place, parameter, newValue=payload)
      Request.queryPage(payload, place, content=True, raise404=False)
@@ -137,7 +137,7 @@ check = heuristicCheckSqlInjection(place, parameter)
  - checkSqlInjection()函数在 sqlmap\lib\contoller\check.py 第64行，函数是进行注入类型判断，生成payloads；根据用户指定或者是
  页面报错信息来判断DBMS类型。这应该是sqlmap中最重要的一块。
  - 可以看到4中注入方式 1.盲注 2.基于错误注入 3.时间注入 4.联合查询注入
- - ```sh
+    ```sh
    if method == PAYLOAD.METHOD.COMPARISON:
    elif method == PAYLOAD.METHOD.GREP:
    elif method == PAYLOAD.METHOD.TIME:

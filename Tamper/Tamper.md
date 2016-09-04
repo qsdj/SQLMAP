@@ -24,7 +24,7 @@ while i < len(payload):
 ## charunicodeencode.py
  - payloads unicode编码 Example: 'SELECT FIELD%20FROM TABLE' becomes '%u0053%u0045%u004c%u0045%u0043%u0054%u0020%u0046%u0049%u0045%u004c%u0044%u00
  20%u0046%u0052%u004f%u004d%u0020%u0054%u0041%u0042%u004c%u0045'
- ```sh
+```sh
 while i < len(payload):
 	if payload[i] == '%' and (i < len(payload) - 2) and payload[i+1] in string.hexdigits and payload[i+2] in string.hexdigits:
 		retVal += "%%u00%s" % payload[i+1:i+3]

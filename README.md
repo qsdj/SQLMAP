@@ -95,14 +95,14 @@ for targetUrl, targetMethod, targetData, targetCookie in kb.targetUrls:
         ```
 
  
-## controller.py 第267行 第364行
+## controller.py 第267行 
  - setupTargetEnv()函数将解析参数、生成cookie信息、创建并输出结果。
 
 ```sh
 elif not checkDynParam(place, parameter, value):
 def checkDynParam(place, parameter, value)
 ``` 
-## 第364行
+## controller.py 第364行
 - checkDynParam()函数在sqlmap\lib\contoller\check.py 第569行 checkDynParam()函数检测url参数是否为动态。
 
 ## controller.py 第375行

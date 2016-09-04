@@ -32,7 +32,7 @@
       SBMOMB   @Z:ZN@B@7  rB@BMqr2BGMESuMOMBi     
 
 ## SQLMap 流程
-- sqlmap version；0.9
+- sqlmap version：0.9
 
 ## sqlmap.py 64行
 ```sh
@@ -44,7 +44,7 @@
  ```sh
  paths.SQLMAP_XML_PATH = os.path.join(paths.SQLMAP_ROOT_PATH, "xml")
  ```
-  - banner()函数的作用是sqlmap在执行测试时输出sqlmap的banner和版本信息。
+ - banner()函数的作用是sqlmap在执行测试时输出sqlmap的banner和版本信息。
 
 ## sqlmap.py 73行
 ```sh
@@ -61,8 +61,8 @@
  
  ## sqlmap.py 81行
 ```sh
-         else:
-            start()
+    else:
+    	start()
 ```
  - start()函数，sqlmap注入测试的开始。
  - start()函数在sqlmap\lib\controller\controller.py中，controller.py 140行。
@@ -73,15 +73,15 @@
         action()
         return True
     ```
-    - conf.direct这是sqlmap -d，sqlmap进入action()函数并连接数据库。
+ - conf.direct这是sqlmap -d，sqlmap进入action()函数并连接数据库。
 			 - action.py中158行
 			 - ```sh
 			       if conf.direct:
         				conf.dbmsConnector.close()
          ```
  - controller.py 第173行 进入循环参数检测。
-- ```sh
-     for targetUrl, targetMethod, targetData, targetCookie in kb.targetUrls:
+```sh
+for targetUrl, targetMethod, targetData, targetCookie in kb.targetUrls:
         try:
             conf.url    = targetUrl
             conf.method = targetMethod
@@ -92,24 +92,24 @@
             parseTargetUrl()
 
             testSqlInj = False
-    ```
+```
  - 会检测是否以前测试过testSqlInj，以及初始化基本参数url/psot:get/cookie/configfire/data。
  
  ## controller.py 第267行
  - setupTargetEnv()函数将解析参数、生成cookie信息、创建并输出结果。
  
  ## controller.py 第364行
-- ```sh
+```sh
    elif not checkDynParam(place, parameter, value):
-  ```
- -  checkDynParam()函数在sqlmap\lib\contoller\check.py 第569行 checkDynParam()函数检测url参数是否为动态。
+```
+ - checkDynParam()函数在sqlmap\lib\contoller\check.py 第569行 checkDynParam()函数检测url参数是否为动态。
  - ```sh
    def checkDynParam(place, parameter, value)
    ```
 ## controller.py 第375行
- - ```sh
+```sh
 		check = heuristicCheckSqlInjection(place, parameter)
-   ```
+```
  - heuristicCheckSqlInjection()函数在sqlmap\lib\contoller\check.py 第496行。
  - ```sh
    def heuristicCheckSqlInjection(place, parameter):   
@@ -123,7 +123,7 @@
     result = wasLastRequestDBMSError()
     ```
  - 同时输出根据payloads进行简单测试的结果。
- - ```sh
+   ```sh
        if result:
         infoMsg += "be injectable (possible DBMS: %s)" % (Format.getErrorParsedDBMSes() or UNKNOWN_DBMS_VERSION)
         logger.info(infoMsg)
@@ -134,12 +134,12 @@
     return result
     ```
 ## controller.py 第384行
- - ```sh
-   injection = checkSqlInjection(place, parameter, value)
-   ```
-- checkSqlInjection()函数在sqlmap\lib\contoller\check.py第64行，函数是进行注入类型判断，生成payloads；根据用户指定或者是页面报错信息来判断DBMS类型。这应该是sqlmap中最重要的一块。
+```sh
+ injection = checkSqlInjection(place, parameter, value)
+```
+ - checkSqlInjection()函数在 sqlmap\lib\contoller\check.py 第64行，函数是进行注入类型判断，生成payloads；根据用户指定或者是
+ 页面报错信息来判断DBMS类型。这应该是sqlmap中最重要的一块。
  - 可以看到4中注入方式 1.盲注 2.基于错误注入 3.时间注入 4.联合查询注入
-
  - ```sh
    if method == PAYLOAD.METHOD.COMPARISON:
    elif method == PAYLOAD.METHOD.GREP:
@@ -153,13 +153,13 @@
  - 生成payloads测试
  - METHOD.COMPARISON: METHOD.TIME：METHOD.GREP:METHOD.UNION:
  - 输出 存储 结果
-
 0x01 
- - 第一遍阅读（pycharm调试），笔记写的如流水帐一般。sqlmap的sql注射技巧真的一流。sqlmap值得继续去读，这次从sql注射来读，下一次要
+第一遍阅读（pycharm调试），笔记写的如流水帐一般。sqlmap的sql注射技巧真的一流。sqlmap值得继续去读，这次从sql注射来读，下一次要
 当成工程去深入的读。
 
 0x02
- - 网上 曾是土木人“http://www.cnblogs.com/hongfei/category/372087.html”的关于sqlmap源码的文章以及3xpl0it “https://www.91ri.org/13785.html?utm_source=tuicool&utm_medium=referral”都写的非常好。
+网上 曾是土木人“http://www.cnblogs.com/hongfei/category/372087.html” 的关于sqlmap源码的文章以及3xpl0it 
+“https://www.91ri.org/13785.html?utm_source=tuicool&utm_medium=referral”都写的非常好。
 
    
 

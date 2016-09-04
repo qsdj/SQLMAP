@@ -79,7 +79,7 @@
 			       if conf.direct:
         				conf.dbmsConnector.close()
          ```
- - controller.py 第173行 进入循环参数检测。
+ - controller.py第173行进入循环参数检测。会检测是否以前测试过testSqlInj，以及初始化基本参数url/psot:get/cookie/configfire/data
 ```sh
 for targetUrl, targetMethod, targetData, targetCookie in kb.targetUrls:
         try:
@@ -93,15 +93,15 @@ for targetUrl, targetMethod, targetData, targetCookie in kb.targetUrls:
 
             testSqlInj = False
 ```
- - 会检测是否以前测试过testSqlInj，以及初始化基本参数url/psot:get/cookie/configfire/data。
+
  
 ## controller.py 第267行
 
-- setupTargetEnv()函数将解析参数、生成cookie信息、创建并输出结果。
+ - setupTargetEnv()函数将解析参数、生成cookie信息、创建并输出结果。
  
 ## controller.py 第364行
 
-- checkDynParam()函数在sqlmap\lib\contoller\check.py 第569行 checkDynParam()函数检测url参数是否为动态。
+ - checkDynParam()函数在sqlmap\lib\contoller\check.py 第569行 checkDynParam()函数检测url参数是否为动态。
 
 ```sh
 elif not checkDynParam(place, parameter, value):
